@@ -5,7 +5,7 @@ export default async function handler(req,res){
     let client = new MongoClient("mongodb+srv://louisdevzz04:vohuunhan1310@cluster0.zmwbg2i.mongodb.net/dropauth?retryWrites=true&w=majority")
     let clientPromsie = await client.connect();
     let db = clientPromsie.db();
-    let col = await db.collection("datas");
+    let col = await db.collection("actiondatas");
 
     res.setHeader('Access-Control-Allow-Credentials', true)
     res.setHeader('Access-Control-Allow-Origin', '*')
