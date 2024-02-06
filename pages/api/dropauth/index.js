@@ -17,15 +17,16 @@ export default async function handler(req,res){
     )
 
     if(method=="POST"){
+        const format = JSON.parse(req.body)
         const data = {
-            name: req.body.name,
-            description: req.body.description,
-            start: req.body.start,
-            end: req.body.end,
-            backgroundCover:req.body.backgroundCover,
-            link: req.body.link,
-            timezone: req.body.timezone,
-            amount: req.body.amount
+            name: format.name,
+            description: format.description,
+            start: format.start,
+            end: format.end,
+            backgroundCover:format.backgroundCover,
+            link: format.link,
+            timezone: format.timezone,
+            amount: format.amount
         } 
         const updata = await col.insertOne(data)
         res.status(200).json(updata)
