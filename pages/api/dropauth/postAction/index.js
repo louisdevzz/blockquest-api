@@ -19,13 +19,13 @@ export default async function handler(req,res){
 
     if(method=="POST"){
         const data = {
-            contentId:req.body.id,
+            contentId:req.body.contentId,
             postId:req.body.postId,
             action:req.body.action,
             userCreated:req.body.userCreated,
         };
         try{
-            const result = col.insertOne(data)
+            const result = await col.insertOne(data)
             res.status(200).json(result)
         }
         catch(error){

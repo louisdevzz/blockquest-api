@@ -19,7 +19,7 @@ export default async function handler(req,res){
 
     if(method=="GET"){
         try{
-            const result = col.find({}).toArray();
+            const result = await col.find().toArray();
             res.status(200).json(result)
         }
         catch(error){
