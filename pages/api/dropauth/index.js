@@ -28,7 +28,8 @@ export default async function handler(req,res){
             timezone: format.timezone,
             amount: format.amount,
             perform:format.perform,
-            userCreated:format.userCreated
+            userCreated:format.userCreated,
+            ipfs:format.ipfs_cid
         } 
         const updata = await col.insertOne(data)
         res.status(200).json(updata)
