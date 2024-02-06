@@ -26,7 +26,9 @@ export default async function handler(req,res){
             backgroundCover:format.backgroundCover,
             link: format.link,
             timezone: format.timezone,
-            amount: format.amount
+            amount: format.amount,
+            perform:format.perform,
+            userCreated:format.userCreated
         } 
         const updata = await col.insertOne(data)
         res.status(200).json(updata)
