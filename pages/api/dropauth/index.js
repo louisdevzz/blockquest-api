@@ -17,7 +17,7 @@ export default async function handler(req,res){
       'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
     )
 
-    if(method=="POST"||method=="post"||method=="Post"){
+    if(method=="POST"){
         const data = {
             name: req.body.name,
             description: req.body.description,
@@ -31,7 +31,7 @@ export default async function handler(req,res){
         const updata = await col.insertOne(data)
         res.status(200).json(updata)
     }
-    if(method=="GET"||method=="get"||method=="Get"){
+    if(method=="GET"){
         const data = await col.find({}).toArray()
         res.status(200).json({data})
     }

@@ -2,7 +2,7 @@ import { MongoClient } from "mongodb";
 
 export default async function handler(req,res){
     const {method} = req;
-    if(method == "POST"||method=="Post"){
+    if(method == "POST"){
         try{
             let client = new MongoClient("mongodb+srv://louisdevzz04:vohuunhan1310@cluster0.zmwbg2i.mongodb.net/dropauth?retryWrites=true&w=majority")
             let clientPromsie = await client.connect();

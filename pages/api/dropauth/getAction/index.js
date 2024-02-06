@@ -8,7 +8,7 @@ export default async function handler(req,res){
     let col = await db.collection("actiondatas");
 
 
-    if(method=="GET"||method=="get"||method=="Get"){
+    if(method=="GET"){
         try{
             const result = await col.find().toArray();
             res.status(200).json(result)
