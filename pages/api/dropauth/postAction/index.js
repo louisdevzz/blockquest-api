@@ -16,12 +16,12 @@ export default async function handler(req,res){
             let clientPromsie = await client.connect();
             let db = clientPromsie.db();
             let col = await db.collection("actiondatas");
-            
+            const format =JSON.parse(req.body)
             const data = {
-                contentId:req.body.contentId,
-                postId:req.body.postId,
-                action:req.body.action,
-                userCreated:req.body.userCreated,
+                contentId:format.contentId,
+                postId:format.postId,
+                action:format.action,
+                userCreated:format.userCreated,
             };
             const result = await col.insertOne(data)
             console.log("data",data)
