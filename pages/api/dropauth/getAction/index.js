@@ -7,17 +7,8 @@ export default async function handler(req,res){
     let db = clientPromsie.db();
     let col = await db.collection("actiondatas");
 
-    res.setHeader('Access-Control-Allow-Credentials', true)
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    // another common pattern
-    // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-    )
 
-    if(method=="GET"){
+    if(method=="GET"||method=="get"||method=="Get"){
         try{
             const result = await col.find().toArray();
             res.status(200).json(result)
