@@ -19,7 +19,7 @@ export default async function handler(req,res){
             const format =JSON.parse(req.body)
             const data = {
                 userId:format.userId,
-                campainId:format.campainId,
+                campaignId:format.campaignId,
             };
             const result = await col.insertOne(data)
             console.log("data",data)
